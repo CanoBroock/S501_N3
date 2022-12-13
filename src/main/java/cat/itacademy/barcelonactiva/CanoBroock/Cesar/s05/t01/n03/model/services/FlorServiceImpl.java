@@ -21,15 +21,6 @@ public class FlorServiceImpl {
 
     private final RestTemplate restTemplate;
 
-    /*private FlorDTO convertEntityToDTO(FlorEntity florEntity) {
-        FlorDTO florDTO = new FlorDTO();
-        florDTO.setPk_FlorID((int) florEntity.getPk_FlorID());
-        florDTO.setNomFlor(florEntity.getNomFlor());
-        florDTO.setPaisFlor(florEntity.getPaisFlor());
-        florDTO.setTipoFlor(florEntity.getPaisFlor());
-        return florDTO;
-    }*/
-
     public List<FlorDTO> getAllFlores() {
         FlorDTO[]response = restTemplate.getForObject(basePath+"/getAll", FlorDTO[].class);
         return Arrays.asList(response);
@@ -39,7 +30,11 @@ public class FlorServiceImpl {
         restTemplate.postForObject(basePath+"/add", florEntity, FlorEntity.class);
     }
 
-    /*public FlorEntity getFlorById(long id) {
+    public void updateFlore(Long id, FlorEntity florEntity){
+        restTemplate.put(basePath+"/update/"+id,florEntity);
+    }
+/*
+    public FlorEntity getFlorById(long id) {
         Optional<FlorEntity> optional = florRepository.findById(id);
         FlorEntity florEntity = null;
         if (optional.isPresent()) {
@@ -48,9 +43,9 @@ public class FlorServiceImpl {
             throw new RuntimeException(" Flor not found for id :: " + id);
         }
         return florEntity;
-    }
+    }}*/
 
-    public void deleteFlorById(long id) {
-        this.florRepository.deleteById(id);
-    }*/
+    public void deleteFlorById(int id) {
+        restTemplate.delete("http://localhost:9001/flor/delete/" + id);
+    }
 }

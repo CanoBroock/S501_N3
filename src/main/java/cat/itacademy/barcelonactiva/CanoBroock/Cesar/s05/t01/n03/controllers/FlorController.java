@@ -31,8 +31,8 @@ public class FlorController {
     }
 
     @DeleteMapping("/clientFlorsDelete/{id}")
-    public void deleteFlor(@PathVariable("id") int id) {
-
+    public ResponseEntity<HttpStatus> deleteFlor(@PathVariable("id") int id) {
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     /*@GetMapping("/clientFlorsGetOne/{id}")

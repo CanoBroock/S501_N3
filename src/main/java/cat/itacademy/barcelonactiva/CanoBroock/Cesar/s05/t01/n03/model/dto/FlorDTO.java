@@ -25,24 +25,4 @@ public class FlorDTO implements Serializable {
     private String paisFlor;
     private String tipoFlor;
 
-    /*public void setTipoFlor(String paisFlor) {
-        florUE(paisFlor);
-    }
-
-    public String florUE(String paisFlor) {
-        boolean controlador = false;
-        int i = 0;
-
-        while (i < floresUE.size() && controlador == false) {
-            if (paisFlor.equalsIgnoreCase(floresUE.get(i))) {
-                tipoFlor = "Dentro de la UE";
-                controlador = true;
-            }
-            i++;
-        }
-        if (controlador == false) {
-            tipoFlor = "Fuera de la UE";
-        }
-        return tipoFlor;
-    }*/
 }
