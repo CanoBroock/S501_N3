@@ -47,8 +47,8 @@ public class FlorController {
 
 
         @GetMapping("/clientFlorsGetOne/{id}")
-        public FlorEntity getFlorById(@PathVariable("id") int idFlor){
-            return webClient.get().uri("http://localhost:9001/getOne/{id}",idFlor)
+        public FlorEntity getFlorById(@PathVariable("id")int id){
+            return webClient.get().uri("http://localhost:9001/getOne/{id}",id)
                     .retrieve()
                     .bodyToMono(FlorEntity.class)
                     .block();

@@ -18,6 +18,6 @@ class SwaggerConfig{
 public class SwaggerConfig {
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("cat.itacademy.barcelonactiva.fernandezVidal.alejandro.s05.t01.n03.S05T01N03FernandezVidalAlejandro.controllers")).paths(PathSelectors.any()).build();
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("")).paths(PathSelectors.any()).build();
     }
 }*/
