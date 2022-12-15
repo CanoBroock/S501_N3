@@ -26,15 +26,23 @@ public class FlorController {
                 .bodyToMono(FlorEntity.class)
                 .block();
     }
-    /*
+
     @PutMapping("/clientFlorsUpdate/{id}")
     public void updateFlor(@PathVariable("id") int idFlor, @RequestBody FlorEntity florEntity) {
-        webClient.put().uri("http://localhost:9001/update/{id}", idFlor)
+        webClient.put().uri("http://localhost:9001/flor/update/{id}", idFlor)
                 .syncBody(florEntity)
                 .retrieve()
                 .bodyToMono(FlorEntity.class)
                 .block();
-    }*/
+    }
+
+    @GetMapping("/clientFlorsGetOne/{id}")
+    public FlorEntity getFlorById(@PathVariable("id")int idFlor){
+        return webClient.get().uri("http://localhost:9001/flor/getOne/{id}",idFlor)
+                .retrieve()
+                .bodyToMono(FlorEntity.class)
+                .block();
+    }
 
     //FUNCIONA
     @DeleteMapping("/clientFlorsDelete/{id}")
@@ -45,14 +53,6 @@ public class FlorController {
                 .block();
     }
 
-
-        @GetMapping("/clientFlorsGetOne/{id}")
-        public FlorEntity getFlorById(@PathVariable("id")int id){
-            return webClient.get().uri("http://localhost:9001/getOne/{id}",id)
-                    .retrieve()
-                    .bodyToMono(FlorEntity.class)
-                    .block();
-        }
     //FUNCIONA
     @GetMapping("/clientFlorsAll")
     public List<FlorDTO> getAllFlores() {
